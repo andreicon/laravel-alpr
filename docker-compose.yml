@@ -1,0 +1,30 @@
+version: '2'
+services:
+  alpr:
+    image: andreicon/alpr
+    ports:
+      - 8000:8000
+    volumes:
+      - laravel:/laravel
+    environment:
+      - DB_HOST=mysql
+    depends_on:
+      - mysql
+  c9:
+    image: kdelfour/cloud9-docker
+    ports:
+      - "8800:80"
+    volumes:
+      - laravel:/workspace
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_USER=homestead
+      - MYSQL_PASSWORD=secret
+      - MYSQL_DATABASE=homestead
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 3306:3306
+volumes:
+  laravel:
+    driver: local
