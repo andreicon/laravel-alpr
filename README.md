@@ -26,3 +26,8 @@ Run:
 ```bash
 docker run -d -p 8000:8000 andreicon/laravel-alpr
 ```
+
+## TODO:
+
+- modify existing licenseplate class and return all data from alpr call
+- ability to parse video stream and add plates to a datastore
